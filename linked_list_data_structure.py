@@ -32,7 +32,8 @@ class LinkedList:
         new_node = Node(val)
         new_node.next = prev_node.next
         prev_node.next = new_node
-
+    
+    # no duplicate nodes in our Linked List
     def delete_node_with_key(self, key):
         curr_node = self.head
         if curr_node and curr_node.data == key:
@@ -50,7 +51,8 @@ class LinkedList:
         else:
             prev_node.next = curr_node.next
             curr_node = None
-
+    
+    # no duplicate nodes in our Linked List
     def delete_node_at_pos(self, pos):
         curr_node = self.head
         if pos == 0:

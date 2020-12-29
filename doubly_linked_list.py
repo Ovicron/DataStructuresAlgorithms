@@ -117,16 +117,16 @@ class DoublyLinkedList:
             curr = curr.next
     
     def remove_duplicates(self):
-    seen = {}
-    curr = self.head
-    while curr:
-        if curr.data not in seen:
-            seen[curr.data] = 1
-            curr = curr.next
-        else:
-            nxt = curr.next
-            self.remove_node(curr)
-            curr = nxt
+        seen = {}
+        curr = self.head
+        while curr:
+            if curr.data not in seen:
+                seen[curr.data] = 1
+                curr = curr.next
+            else:
+                nxt = curr.next
+                self.remove_node(curr)
+                curr = nxt
 
 
 

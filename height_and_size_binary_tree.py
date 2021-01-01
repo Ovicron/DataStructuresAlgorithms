@@ -22,3 +22,10 @@ def size(self):
             stack.push(node.right)
         count += 1
     return count
+
+
+# Size of tree (node count) recursively 
+def size_(self, node):
+    if node is None:
+        return 0
+    return 1 + self.size_(node.left) + self.size_(node.right)

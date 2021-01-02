@@ -1,59 +1,82 @@
+
 class Node:
-    def __init__(self, data):
+    def __init__(self, data=None, left=None, right=None):
         self.data = data
-        self.left = None
-        self.right = None
+        self.left = left
+        self.right = right
 
-    def insert(self, val):
-        if val <= self.data:
-            if self.left is None:
-                self.left = Node(val)
-            else:
-                self.left.insert(val)
+
+class BinarySearchTree:
+    def __init__(self, root=None):
+        self.root = root
+
+    def insert(self, data):
+        if self.root is None:
+            self.root = Node(data)
         else:
-            if self.right is None:
-                self.right = Node(val)
-            else:
-                self.right.insert(val)
+            self._insert(data, self.root)
 
-    def find(self, val):
-        if val == self.data:
-            return True
-        elif val < self.data:
-            if self.left is None:
-                return False
+    def _insert(self, data, cur_node):
+        if data < cur_node.data:
+            if cur_node.left is None:
+                cur_node.left = Node(data)
             else:
-                return self.left.find(val)
+                self._insert(data, cur_node.left)
+        elif data > cur_node.data:
+            if cur_node.right is None:
+                cur_node.right = Node(data)
+            else:
+                self._insert(data, cur_node.right)
         else:
-            if self.right is None:
-                return False
-            else:
-                return self.right.find(val)
+            print(f"'{data}' already exists in the tree.")
 
-    def print_in_order(self):
-        if self.left is not None:
-            self.left.print_in_order()
-        print(self.data)
-        if self.right is not None:
-            self.right.print_in_order()
+    def find(self, key):
+        if self.root:
+            found = self._find(key, self.root)
+            if found:
+                return True
+            return False
+        return None
+
+    def _find(self, key, cur_node):
+        if key == cur_node.data:
+            return self.root
+
+        if key < cur_node.data and cur_node.left:
+            return self._find(key, cur_node.left)
+        elif key > cur_node.data and cur_node.right:
+            return self._find(key, cur_node.right)
+        return False
+
+    def in_order_traversal(self, start):
+        if start.left:
+            self.in_order_traversal(start.left)
+        print(start.data)
+        if start.right:
+            self.in_order_traversal(start.right)
+
+    def post_order_traversal(self, start):
+        if start.left:
+            self.post_order_traversal(start.left)
+        if start.right:
+            self.post_order_traversal(start.right)
+        print(start.data)
+
+    def pre_order_traversal(self, start):
+        print(start.data)
+        if start.left:
+            self.pre_order_traversal(start.left)
+        if start.right:
+            self.pre_order_traversal(start.right)
 
 
-def search(node, key):
-    if node is None or node.data == key:
-        return node
-
-    if key > node.data:
-        search(node.right, key)
-
-    return search(node.left, key)
-
-
-n = Node(10)
-
-n.insert(55)
-n.insert(8)
-n.insert(5)
-n.insert(4)
-n.insert(75)
-
-print(n.print_in_order())
+tree = BinarySearchTree()
+tree.insert(8)
+tree.insert(3)
+tree.insert(10)
+tree.insert(1)
+tree.insert(6)
+tree.insert(14)
+tree.insert(4)
+tree.insert(7)
+tree.insert(13)

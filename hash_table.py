@@ -1,3 +1,4 @@
+# This uses chaining to solve collisions. 
 
 class HashTable:
     def __init__(self):

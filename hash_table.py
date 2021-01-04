@@ -1,4 +1,5 @@
 # This uses chaining to solve collisions. 
+# Chaining search time might be O(n) 
 
 class HashTable:
     def __init__(self):

@@ -1,7 +1,7 @@
 
 class Node:
     def __init__(self, data=None):
-        self.data = dat
+        self.data = data
         self.next = None
 
 

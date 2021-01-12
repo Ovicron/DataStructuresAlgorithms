@@ -68,10 +68,10 @@ g.addEdge('MI', 'WA', 28)
 
 
 # Displays connections
-# for i in g:
-#     print(i)
+for i in g:
+   print(i)
 
 # Displays graph connections (tuple)
-# for i in g:
-#     for v in i.getConnections():
-#         print(f"({i.getId()}, {v.getId()})")
+for i in g:
+   for v in i.getConnections():
+       print(f"({i.getId()}, {v.getId()})")

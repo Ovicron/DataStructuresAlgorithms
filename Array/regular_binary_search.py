@@ -6,10 +6,10 @@ def search(self, nums: List[int], target: int) -> int:
     while low <= high:
         mid = low + (high - low) // 2
 
-        if target == nums[mid]:
+        if nums[mid] == target:
             return mid
-        elif target > nums[mid]:
+        elif nums[mid] < target:
             low = mid + 1
         else:
             high = mid - 1
-    return -1
+    return "Not Found" 

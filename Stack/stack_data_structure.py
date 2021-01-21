@@ -26,8 +26,6 @@ s = Stack()
 
 s.push(123)
 s.push('abc')
-s.push('xyz')
-s.push(789)
 
 print(s.items)
 print(s.is_empty())

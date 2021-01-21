@@ -1,3 +1,5 @@
+# Uses python call stack. 
+
 def moveTower(height,fromPole, toPole, withPole):
     if height >= 1:
         moveTower(height-1,fromPole,withPole,toPole)

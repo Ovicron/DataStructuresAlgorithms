@@ -44,7 +44,7 @@ hash_map = HashTable()
 
 hash_map['march 6'] = 'Hi'
 hash_map['march 17'] = 'Bye'
-hash_map['Ger'] = 'Nick'
+hash_map['Len'] = 'Nick'
 
 
 print(hash_map.arr)
